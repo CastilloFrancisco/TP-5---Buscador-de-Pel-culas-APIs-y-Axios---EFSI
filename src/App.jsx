@@ -78,26 +78,26 @@ function App() {
 
   const obtenerListaBase = async () => {
     const movieIds = [
-      "tt5726616", // CMBYN
-      "tt0147800", // 10 cosas que odio de vos
-      "tt3783958", // La La Land
-      "tt0074119", // All the Presidents Men
-      "tt0388795", // Secreto en la Montaña
-      "tt2980516", // La teoría del Todo
-      "tt0119217", // Good Will Hunting
-      "tt4574334", // Stranger Things
-      "tt4975722", // Moonlight
-      "tt4034228", // Manchester by the sea
-      "tt21192142", // All of us Strangers
-      "tt0480249", // Soy leyenda
-      "tt23867882", // Pokemon
-      "tt0371746", // Ironman
-      "tt1442556", // Gaturro
-      "tt21436120", // Gaturro serie
-      "tt0952640", // Alvin y las ardillas
-      "tt1615918", // Alvin y las ardillas 3
-      "tt0412142", // Dr House en honor a Bruno
-      "tt1329164"  // Algo de Dr House en honor a Bruno tmb
+      "tt0952640", 
+      "tt1231580", 
+      "tt1615918", 
+      "tt2974918", 
+      "tt0084972", 
+      "tt0799921", 
+      "tt0207957", 
+      "tt0069698", 
+      "tt0054514", 
+      "tt3529484", 
+      "tt1321808",
+      "tt2270482", 
+      "tt01", //muestra cargando
+      "tt5645298", 
+      "tt1442556", 
+      "tt11983728",
+      "tt0842012", 
+      "tt0428803", 
+      "tt0412142", 
+      "tt21436120"  
     ];
 
     const shuffled = [...movieIds].sort(() => Math.random() - 0.5);
