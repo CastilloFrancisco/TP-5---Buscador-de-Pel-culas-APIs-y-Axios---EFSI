@@ -38,14 +38,27 @@ function App() {
     }
   };
 
-  const obtenerLista = async (texto) => {
+  const buscarLista = async (texto) => {
 
-    setError("");
+    if (!texto) {
+      setPelicula(null);      
+      obtenerListaBase();
+      return;
+    }
 
     try {
+      setError("");
+      setPelicula(null); 
+
       const response = await axios.get(
         `http://www.omdbapi.com/?apikey=e84efcd2&s=${texto}&page=1`
       );
+
+      if (!response.data.Search) {
+        setLista([]);
+        setError("No se encontraron resultados");
+        return;
+      }
 
       const detalles = await Promise.all(
         response.data.Search.map(async (p) => {
@@ -56,9 +69,10 @@ function App() {
         })
       );
 
-      setLista(detalles.filter((p) => p));
+      setLista(detalles);
+
     } catch {
-      setError("Error cargando lista");
+      setError("Error buscando lista");
     }
   };
 
@@ -101,10 +115,14 @@ function App() {
     setLista(detalles);
   };
 
+
+
   return (
     <>
-      <SearchBar buscarPelicula={buscarPelícula} />
-
+      <SearchBar
+        buscarPelicula={buscarPelícula}
+        buscarLista={buscarLista}
+      />
       {error && <Error mensaje={error} />}
       <PeliculaGrande p={peliculaGrande} />
 

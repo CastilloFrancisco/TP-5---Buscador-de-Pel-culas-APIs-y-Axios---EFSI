@@ -1,0 +1,53 @@
+.CardGrande {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #1e293b;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.contenedorGrande {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.imagen img {
+  width: 250px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.info {
+  flex: 1;
+  text-align: left;
+}
+
+.info h1 {
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.info h5 {
+  margin: 4px 0;
+  color: #cbd5f5;
+  font-weight: normal;
+}
+
+.info h5:nth-child(6) {
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+@media (max-width: 700px) {
+  .contenedorGrande {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info {
+    text-align: center;
+  }
+}
