@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 
 import axios from "axios";
 import './App.css'
+import SearchBar from './components/SearchBar';
+import Error from './components/ErrorMessage';
+import PeliculaGrande from './components/PeliculaGrande';
+import MovieList from './components/MovieList'
 
 function App() {
   const [lista, setLista] = useState([]);
@@ -11,7 +15,7 @@ function App() {
 
   const buscarPelícula = async (texto) => {
 
-    if (!imdbID) {
+    if (!texto) {
       setError("Ingresá una película");
       return;
     }
@@ -20,10 +24,11 @@ function App() {
       setError("");
 
       const response = await axios.get(
-        `http://www.omdbapi.com/?t=${texto}`
+        `http://www.omdbapi.com/?apikey=e84efcd2&t=${texto}`
       );
 
-      setLista([response.data]);
+      setLista([]);
+      setPelicula(response.data);
 
     } catch (err) {
 
@@ -98,12 +103,12 @@ function App() {
 
   return (
     <>
-      <Buscador buscarPelicula={buscarPelícula} />
+      <SearchBar buscarPelicula={buscarPelícula} />
 
       {error && <Error mensaje={error} />}
       <PeliculaGrande p={peliculaGrande} />
 
-      <ListaPeliculas lista={lista} />
+      <MovieList lista={lista} onSelect={setPelicula} />
     </>
   );
 }

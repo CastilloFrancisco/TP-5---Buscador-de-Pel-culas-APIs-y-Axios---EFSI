@@ -1,4 +1,4 @@
-export default function movieDetail({ titulo, año, tipo }) {
+export default function MovieDetail({ titulo, año, tipo }) {
 
     if (!titulo || !año || !tipo) {
         return <p>Cargando...</p>;
